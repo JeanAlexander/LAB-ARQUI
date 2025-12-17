@@ -3,63 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌌 Mapa Futurista en Tiempo Real</title>
+  <title>Mapa Interactivo en Tiempo Real</title>
+
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/854/854878.png" />
 
   <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <!-- Leaflet Draw -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"
+  />
   <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
 
-  <!-- Partículas -->
+  <!-- Background particles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-  <!-- Script (módulo) -->
+  <!-- App Script -->
   <script type="module" src="script.js" defer></script>
 </head>
 
 <body>
+
+  <!-- Background -->
   <div id="particles-js"></div>
 
-  <header>
-    <h1>🌐 Mapa Interactivo en Tiempo Real</h1>
-    <div class="user-controls">
-      <input id="username" type="text" placeholder="Tu nombre (ej. Jean)" />
-      <button id="setName">💾 Guardar</button>
-      <button id="toggleMsgMode">💬 Activar Mensajes</button>
-      <button id="clearMessages">🗑️ Limpiar</button>
-      <button id="centerMe">📍 Centrar</button>
-      <button id="viewAll">🌎 Vista Global</button>
-      <button id="toggleTheme">🌙 Tema</button>
-    </div>
-  </header>
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h2>Panel de información</h2>
 
-  <div id="sidebar">
-    <h2>🧭 Leyenda</h2>
-    <ul>
-      <li><span class="dot self"></span> <b>Tú</b></li>
-      <li><span class="dot others"></span> <b>Otros usuarios</b></li>
-      <li><span class="dot msg"></span> <b>Mensajes</b></li>
-      <li><span class="dot draw"></span> <b>Trazos / Figuras</b></li>
-    </ul>
-    <hr />
-    <p>💬 Activa el modo de mensajes para dejar notas. Usa las herramientas de dibujo para marcar zonas.</p>
-  </div>
+    <p>
+      Este mapa permite la visualización en tiempo real de usuarios conectados,
+      mensajes geolocalizados y elementos dibujados sobre el mapa.
+    </p>
 
-  <!-- PANEL: Coordenadas en tiempo real -->
-  <div id="coords-panel">
-    <h2>📍 Coordenadas</h2>
-    <ul id="coords-list"></ul>
-  </div>
+    <p>
+      Las interacciones se sincronizan automáticamente y son visibles para
+      todos los participantes conectados.
+    </p>
 
-  <div id="map"></div>
+    <p>
+      Utiliza los controles superiores para configurar tu nombre, centrar tu
+      ubicación o cambiar el modo de visualización.
+    </p>
+  </aside>
 
-  <footer>
-    <p>⚡ Proyecto global con Firebase y Leaflet.Draw | Diseño futurista 🌌</p>
-  </footer>
+  <!-- Main -->
+  <main>
+
+    <!-- Header -->
+    <header>
+      <h1>Mapa Interactivo en Tiempo Real</h1>
+
+      <div class="user-controls">
+        <input id="username" type="text" placeholder="Nombre de usuario" />
+        <button id="setName">Guardar</button>
+        <button id="toggleMsgMode">Mensajes</button>
+        <button id="clearMessages">Limpiar</button>
+        <button id="centerMe">Centrar</button>
+        <button id="viewAll">Vista global</button>
+        <button id="toggleTheme">Tema</button>
+      </div>
+    </header>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Coordinates panel -->
+    <section id="coords-panel">
+      <h2>Coordenadas registradas</h2>
+      <ul id="coords-list"></ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      Proyecto de visualización geoespacial en tiempo real con Leaflet y Firebase
+    </footer>
+
+  </main>
+
 </body>
 </html>
+
